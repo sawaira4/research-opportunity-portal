@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NUCES Research Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div>
+        <h1>NUCES Research Hub</h1>
+        <p class="sub">NUCES Peshawar &mdash; every research opening, in one place</p>
+      </div>
+      <button id="btn-new" class="btn primary">Post an opportunity</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="toolbar">
+      <label for="filter" class="sr-only">Filter by status</label>
+      <select id="filter">
+        <option value="All">All opportunities</option>
+        <option value="Open">Open only</option>
+        <option value="Closed">Closed only</option>
+      </select>
+      <span id="count" class="muted"></span>
+    </div>
+
+    <p id="state" class="state" hidden></p>
+    <div id="list" class="list"></div>
+  </main>
+    <footer class="wrap muted" style="padding:20px 0 40px">
+    Built by Sawaira Zaman for CN Assignment 1
+  </footer>
+  <!-- Details dialog -->
+  <dialog id="dlg-detail">
+    <div class="dlg-head">
+      <h2 id="d-title"></h2>
+      <button class="icon-btn" data-close aria-label="Close">&times;</button>
+    </div>
+    <div id="d-body" class="dlg-body"></div>
+  </dialog>
+
+  <!-- Create / edit dialog -->
+  <dialog id="dlg-form">
+    <div class="dlg-head">
+      <h2 id="f-heading">Post an opportunity</h2>
+      <button class="icon-btn" data-close aria-label="Close">&times;</button>
+    </div>
+    <form id="form" class="dlg-body" novalidate>
+      <input type="hidden" id="f-id">
+
+      <div class="field">
+        <label for="title">Research title</label>
+        <input id="title" name="title" maxlength="255" required>
+        <span class="err" data-for="title"></span>
+      </div>
+
+      <div class="field">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+        <span class="err" data-for="description"></span>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="research_area">Research area</label>
+          <input id="research_area" name="research_area" maxlength="100" required>
+          <span class="err" data-for="research_area"></span>
+        </div>
+        <div class="field">
+          <label for="department">Department</label>
+          <input id="department" name="department" maxlength="100" required>
+          <span class="err" data-for="department"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="faculty_name">Faculty member</label>
+        <input id="faculty_name" name="faculty_name" maxlength="100" required>
+        <span class="err" data-for="faculty_name"></span>
+      </div>
+
+      <div class="field">
+        <label for="required_skills">Required skills (comma separated)</label>
+        <input id="required_skills" name="required_skills" maxlength="500" required>
+        <span class="err" data-for="required_skills"></span>
+      </div>
+
+      <div class="row three">
+        <div class="field">
+          <label for="available_positions">Positions</label>
+          <input id="available_positions" name="available_positions" type="number" min="1" step="1" required>
+          <span class="err" data-for="available_positions"></span>
+        </div>
+        <div class="field">
+          <label for="application_deadline">Application deadline</label>
+          <input id="application_deadline" name="application_deadline" type="date" required>
+          <span class="err" data-for="application_deadline"></span>
+        </div>
+        <div class="field">
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" data-close>Cancel</button>
+        <button type="submit" class="btn primary" id="f-submit">Save opportunity</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Delete confirmation -->
+  <dialog id="dlg-confirm">
+    <div class="dlg-head"><h2>Delete this opportunity?</h2></div>
+    <div class="dlg-body">
+      <p id="c-text"></p>
+      <div class="actions">
+        <button type="button" class="btn" data-close>Keep it</button>
+        <button type="button" class="btn danger" id="c-yes">Delete</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="toasts" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

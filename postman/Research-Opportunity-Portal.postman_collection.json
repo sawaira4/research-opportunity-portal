@@ -1,0 +1,411 @@
+{
+  "info": {
+    "_postman_id": "417c6746-343b-4069-bc26-acd24f0af4e5",
+    "name": "Research Opportunity Portal API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58864890",
+    "_collection_link": "https://go.postman.co/collection/58864890-417c6746-343b-4069-bc26-acd24f0af4e5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "1. Create opportunity #1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 201', () => pm.response.to.have.status(201));",
+              "pm.collectionVariables.set('id1', pm.response.json().id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Deep Learning for Medical Imaging\",\n  \"description\": \"Students will work with Dr. Omar's lab on deep learning for medical imaging.\",\n  \"research_area\": \"Artificial Intelligence\",\n  \"faculty_name\": \"Dr. Omar Khan\",\n  \"department\": \"Computer Science\",\n  \"required_skills\": \"Python, PyTorch\",\n  \"available_positions\": 2,\n  \"application_deadline\": \"2026-12-15\",\n  \"status\": \"Open\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Create opportunity #2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 201', () => pm.response.to.have.status(201));",
+              "pm.collectionVariables.set('id2', pm.response.json().id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Secure IoT Communication\",\n  \"description\": \"Students will work with Dr. Omar's lab on secure iot communication.\",\n  \"research_area\": \"Computer Networks\",\n  \"faculty_name\": \"Dr. Omar Khan\",\n  \"department\": \"Computer Science\",\n  \"required_skills\": \"C, Networking, Linux\",\n  \"available_positions\": 3,\n  \"application_deadline\": \"2026-12-20\",\n  \"status\": \"Open\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Create opportunity #3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 201', () => pm.response.to.have.status(201));",
+              "pm.collectionVariables.set('id3', pm.response.json().id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Urdu Sentiment Analysis\",\n  \"description\": \"Students will work with Dr. Omar's lab on urdu sentiment analysis.\",\n  \"research_area\": \"Natural Language Processing\",\n  \"faculty_name\": \"Dr. Omar Khan\",\n  \"department\": \"Computer Science\",\n  \"required_skills\": \"Python, NLP basics\",\n  \"available_positions\": 1,\n  \"application_deadline\": \"2026-12-31\",\n  \"status\": \"Open\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. Get all opportunities",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200', () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. Get one opportunity by ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200', () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id1}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id1}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. Update opportunity (title, skills, positions)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200', () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Deep Learning for Chest X-Ray Analysis\",\n  \"required_skills\": \"Python, PyTorch, OpenCV\",\n  \"available_positions\": 4,\n  \"application_deadline\": \"2027-01-10\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id1}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id1}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7. Change status Open -> Closed",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200', () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Closed\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id2}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id2}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "8. Delete opportunity",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200', () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id3}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id3}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "9. Get deleted opportunity (404)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 404', () => pm.response.to.have.status(404));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id3}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id3}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10. Invalid / missing data (400)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 400', () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"\",\n  \"available_positions\": -5,\n  \"application_deadline\": \"not-a-date\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "id1",
+      "value": ""
+    },
+    {
+      "key": "id2",
+      "value": ""
+    },
+    {
+      "key": "id3",
+      "value": ""
+    }
+  ]
+}
